@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-app-feed
+  labels:
+    app: backend-app-feed
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-app-feed
+  template:
+    metadata:
+      labels:
+        app: backend-app-feed
+    spec:
+      containers:
+      - name: backend-app-feed
+        image: zelenokosa/udagram-api-feed
+        ports:
+        - containerPort: 80

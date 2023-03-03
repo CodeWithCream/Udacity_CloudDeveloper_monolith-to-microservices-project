@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-app-user
+  labels:
+    app: backend-app-user
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-app-user
+  template:
+    metadata:
+      labels:
+        app: backend-app-user
+    spec:
+      containers:
+      - name: backend-app-user
+        image: zelenokosa/udagram-api-user
+        ports:
+        - containerPort: 80
